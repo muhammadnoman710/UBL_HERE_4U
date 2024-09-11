@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverClass {
     PropertyFileReader propertyFileReader = new PropertyFileReader();
-    WebDriver driver = new ChromeDriver();
+    public static WebDriver driver = new ChromeDriver();
     public void setup(){
         String BaseUrl = propertyFileReader.properties.getProperty("BaseUrl");
         driver.get(BaseUrl);

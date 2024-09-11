@@ -22,13 +22,16 @@ public class WaitClass {
         }
 
     }
-    public void explicitWait (By ele) {
-      new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICIT"))))
+    public void explicitWaitVisible (By ele) {
+      new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICITWAIT"))))
               .until(ExpectedConditions.visibilityOfElementLocated(ele));
     }
-    public void ImplicitWait (By ele) {
-        new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICIT"))))
+    public void explicitWaitClickable (By ele) {
+        new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICITWAIT"))))
                 .until(ExpectedConditions.elementToBeClickable(ele));
+    }
+    public void implicitWait () {
+        new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("IMPLICITWAIT"))));
     }
 }
 
