@@ -15,4 +15,7 @@ public class LoginFeature extends DriverClass {
     public By password () {
         return By.xpath("//input[@id='_txtPassword']");
     }
+    public By loginButton () {
+        return By.xpath("//button[@id='_btnLogin']");
+    }
 }

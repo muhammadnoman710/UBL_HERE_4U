@@ -2,6 +2,7 @@ package utility;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,16 +23,19 @@ public class WaitClass {
         }
 
     }
-    public void explicitWaitVisible (By ele) {
+    public WebElement explicitWaitVisible (WebElement element) {
       new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICITWAIT"))))
-              .until(ExpectedConditions.visibilityOfElementLocated(ele));
+              .until(ExpectedConditions.visibilityOf(element));
+      return element;
     }
-    public void explicitWaitClickable (By ele) {
+    public WebElement explicitWaitClickable (WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("EXPLICITWAIT"))))
-                .until(ExpectedConditions.elementToBeClickable(ele));
+                .until(ExpectedConditions.elementToBeClickable(element));
+        return element;
     }
-    public void implicitWait () {
+    public WebElement implicitWait (WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(propertyFileReader.properties.getProperty("IMPLICITWAIT"))));
+        return element;
     }
 }
 
